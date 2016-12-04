@@ -11,4 +11,4 @@
 (defn -main
   "Problem: get the sum of all even fibonacci numbers less than 4,000,000"
   [& args]
-  println (reduce + (filter even? (take-while #(< % 4000000) fibonacci))))
+  (println (reduce + (filter even? (take-while #(< % 4000000) fibonacci)))))

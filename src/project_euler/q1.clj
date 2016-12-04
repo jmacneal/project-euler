@@ -10,7 +10,7 @@
   "Problem: get the sum of all multiples of 3 and/or 5 below 1000"
   [& args]
   (let [x (reduce + (filter mult-of-3-or-5 (range 1 1000)))]
-   println x))
+   (println x)))
 
 
 

@@ -17,9 +17,19 @@
   "returns the next divisor of number in the collection"
   (first (filter #(= 0 (mod number %)) collection)))
 
+(defn next-prime-divisor [number]
+  "returns the next prime divisor of number"
+  (next-divisor number primes))
+
 (defn prime-factorize [x]
   "return a list of the prime factors of x"
-  )
+  (loop [n x factors []]
+    (let [divisor (next-prime-divisor n)]
+      (if divisor (recur (/ n divisor) (conj factors divisor))
+          factors))))
+
 (defn -main
   "Problem: find the largest prime factor of big-num"
-  [& args])
+  [& args]
+  (println (apply max (prime-factorize big-num))))
+
